@@ -59,13 +59,12 @@ client.on('messageReactionRemove', (reaction, user) => {
 
 client.on('ready', () => {
     const statuses = [
-        () => `${client.guilds.cache.reduce((acc, guild) => acc + guild.memberCount, 0)} utilisateurs`,
         'RL Scrims',
         'https://discord.gg/j9pTnryDKm'
     ]
     let i = 0
     setInterval(() => {
-        client.user.setActivity(statuses[i](), {type: 'PLAYING'})
+        client.user.setActivity(statuses[i], {type: 'PLAYING'})
         i = ++i % statuses.length
     }, 1e4)
     
